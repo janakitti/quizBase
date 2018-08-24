@@ -1,6 +1,60 @@
 body {
     font-family: "Lato", sans-serif;
+    background-image: : url("images/background.jpg");
 }
+
+.background {
+    position: fixed;
+    z-index: -1;
+}
+
+.titleContainer {
+    z-index: 1;
+    width: 100%;
+    height: 30em;
+    padding-top: 200px;
+    padding-left: 200px;
+    background-color: white;
+    opacity: 0.3;
+}
+
+.bodyContainer {
+    z-index: 1;
+    width: 100%;
+    padding-top: 10px;
+    background-color: white;
+    opacity: 1;
+}
+
+.container {
+    margin-left: 200px;
+    margin-top: 20px;
+    width: 70%;
+
+}
+
+.mainTitle {
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 8vw;
+    color: black;
+    text-align: left;
+    line-height: 20%;
+    z-index: 0;
+}
+
+.subTitle {
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 2vw;
+    color: black;
+    text-align: left;
+    margin-left: 80px;
+    line-height: 300%;
+    z-index: 0;
+}
+
+
 
 .sidenav {
     height: 100%;
@@ -26,6 +80,18 @@ body {
     color: #f1f1f1;
 }
 
+.logo1 {
+    height: 100px;
+    width: 100px;
+    margin-left: 25px;
+}
+
+
+
+
+
+
+
 .main {
     margin-left: 160px; /* Same as the width of the sidenav */
     font-size: 28px; /* Increased text to enable scrolling */
@@ -39,12 +105,6 @@ body {
 
 
 
-.container {
-    margin-left: 200px;
-    margin-top: 20px;
-    width: 70%;
-
-}
 
 
 .sideStripe1 {
