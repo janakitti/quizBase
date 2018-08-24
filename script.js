@@ -86,11 +86,12 @@ function gotDataDisplayQuizzes(data) {
     var table = document.getElementById("quizDisplay");
     var data = data.val();
 
+
     for (var i in data) {
 
         var buttonnode= document.createElement('input');
         buttonnode.setAttribute('type','button');
-        buttonnode.setAttribute('class', 'btn btn-dark')
+        buttonnode.setAttribute('class', 'btn btn-dark btn-sm')
         buttonnode.setAttribute('value','GO');
         buttonnode.setAttribute('onClick', "initializeQuiz(this.parentNode)");
 
@@ -114,8 +115,12 @@ function errDataDisplayQuizzes(err) {
 function initializeQuiz(rowOfButtonClicked) {
     var table = document.getElementById("quizDisplay");
     var currentQuiz = table.rows[rowOfButtonClicked.rowIndex].cells[0].innerHTML;
+    alert(currentQuiz);
 
     localStorage.setItem("currentQuiz", currentQuiz);
+    localStorage.setItem("currentQuestionNum", 0);
+    localStorage.setItem("score", 0);
+    console.log(localStorage.getItem("currentQuiz"), localStorage.getItem("currentQuestionNum"), localStorage.getItem("score"));
     window.location.href = './quizMode.html';
 }
 
@@ -163,20 +168,14 @@ function beginQuiz() {
 }
 
 function gotDataBeginQuiz(data) {
-    document.getElementById("quizTitle").innerHTML = "Smug";
-    document.getElementById("questionNum").innerHTML = "0";
+    document.getElementById("quizTitle").innerHTML = localStorage.getItem("currentQuiz");
+    document.getElementById("questionNum").innerHTML = localStorage.getItem("currentQuestionNum");
 
     var currentQuiz = $("#quizTitle").text();
 
-
-
     var questions = data.val()[currentQuiz]["questions"];
-    console.log(questions);
-
 
     var currentQuestion = Object.keys(questions)[parseInt($("#questionNum").text())];
-
-
 
     // Retrieve and display question
     document.getElementById("question").innerHTML = currentQuestion;
