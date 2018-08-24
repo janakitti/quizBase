@@ -6,7 +6,7 @@ body {
     height: 100%;
     width: 160px;
     position: fixed;
-    z-index: 1;
+    z-index: 0;
     top: 0;
     left: 0;
     background-color: #111;
@@ -39,6 +39,41 @@ body {
 
 
 
-.col-2 {
-background-color: #f5f3f3;
+.container {
+    margin-left: 200px;
+    margin-top: 20px;
+    width: 70%;
+
+}
+
+
+.sideStripe1 {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    background-color: #00b386;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+
+
+
+
+
+.results tr[visible='false'],
+.no-result{
+  display:none;
+}
+
+.results tr[visible='true']{
+  display:table-row;
+}
+
+.counter{
+  padding:8px;
+  color:#ccc;
 }
