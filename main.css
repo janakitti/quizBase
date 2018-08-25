@@ -87,10 +87,13 @@ body {
 }
 
 
+#buildQuizButton {
+    margin-bottom: 80px;
+}
 
-
-
-
+.bodyContainer {
+    padding-bottom: 100px;
+}
 
 .main {
     margin-left: 160px; /* Same as the width of the sidenav */
@@ -136,4 +139,61 @@ body {
 .counter{
   padding:8px;
   color:#ccc;
+}
+
+
+#searchBar {
+    box-shadow: 10px 10px 50px 2px #888888;
+}
+
+#quizDisplay {
+    box-shadow: 10px 10px 50px 2px #888888;
+}
+
+
+
+
+/* TAKING THE QUIZ */
+
+.form-check-label {
+    font-family: Lato;
+    font-size: 1.5vw;
+    color: black;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.form-check-input {
+    transform: scale(1.5);
+}
+
+#question {
+    font-family: Lato;
+    font-weight: bold;
+    font-size: 2vw;
+    color: black;
+    text-align: left;
+}
+
+#questionNum {
+    font-family: Lato;
+    font-size: 0vw;
+    color: white;
+    text-align: left;
+}
+
+#quizTitle {
+    font-family: Lato;
+    font-size: 5vw;
+    color: #a6a6a6;
+    text-align: left;
+}
+
+#response {
+    position: absolute;
+    font-family: Lato;
+    font-size: 2vw;
+    color: #b3b3b3;
+    text-align: right;
+    margin-top: 20px;
 }

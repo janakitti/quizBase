@@ -91,7 +91,7 @@ function gotDataDisplayQuizzes(data) {
 
         var buttonnode= document.createElement('input');
         buttonnode.setAttribute('type','button');
-        buttonnode.setAttribute('class', 'btn btn-dark btn-sm')
+        buttonnode.setAttribute('class', 'btn btn-light btn-sm');
         buttonnode.setAttribute('value','GO');
         buttonnode.setAttribute('onClick', "initializeQuiz(this.parentNode)");
 
@@ -115,7 +115,6 @@ function errDataDisplayQuizzes(err) {
 function initializeQuiz(rowOfButtonClicked) {
     var table = document.getElementById("quizDisplay");
     var currentQuiz = table.rows[rowOfButtonClicked.rowIndex].cells[0].innerHTML;
-    alert(currentQuiz);
 
     localStorage.setItem("currentQuiz", currentQuiz);
     localStorage.setItem("currentQuestionNum", 0);
@@ -131,32 +130,32 @@ function initializeQuiz(rowOfButtonClicked) {
 
 
 
-$(document).ready(function() {
-  $(".search").keyup(function () {
-    var searchTerm = $(".search").val();
-    var listItem = $('.results tbody').children('tr');
-    var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
+// $(document).ready(function() {
+//   $(".search").keyup(function () {
+//     var searchTerm = $(".search").val();
+//     var listItem = $('.results tbody').children('tr');
+//     var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
 
-  $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
-        return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
-    }
-  });
+//   $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
+//         return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+//     }
+//   });
 
-  $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
-    $(this).attr('visible','false');
-  });
+//   $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
+//     $(this).attr('visible','false');
+//   });
 
-  $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e){
-    $(this).attr('visible','true');
-  });
+//   $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e){
+//     $(this).attr('visible','true');
+//   });
 
-  var jobCount = $('.results tbody tr[visible="true"]').length;
-    $('.counter').text(jobCount + ' item');
+//   var jobCount = $('.results tbody tr[visible="true"]').length;
+//     $('.counter').text(jobCount + ' item');
 
-  if(jobCount == '0') {$('.no-result').show();}
-    else {$('.no-result').hide();}
-          });
-});
+//   if(jobCount == '0') {$('.no-result').show();}
+//     else {$('.no-result').hide();}
+//           });
+// });
 
 
 
@@ -279,4 +278,36 @@ function nextQuestions(data) {
 function finishedQuiz() {
     console.log(String(localStorage.getItem("score")));
     document.getElementById("score").innerHTML = "Your Score: " +  String(localStorage.getItem("score")) + "/" + String(localStorage.getItem("numOfQuestionsInQuiz"));
+}
+
+
+
+
+
+
+
+
+function searching() {
+    ref.on('value', gotDataSearching, errDataSearching);
+
+}
+
+
+function gotDataSearching(data) {
+    var input = String($("#searchBar").val());
+    var data = data.val();
+    var table = document.getElementById("quizDisplay");
+    for (var i = 1; i < table.rows.length-1; i++) {
+        if (table.rows[i].cells[0].innerHTML.includes(input)){
+            table.rows[i].style.display = '';
+        } else {
+            table.rows[i].style.display = 'none';
+        }
+
+    }
+}
+
+function errDataSearching(err) {
+    console.log("error!");
+    console.log(err);
 }

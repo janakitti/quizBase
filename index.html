@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto+Mono" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto+Mono|Lato" rel="stylesheet">
         <link rel="stylesheet" href="main.css">
     </head>
 
@@ -16,6 +16,7 @@
 
 
         <img class="background" src="images/background.jpg" alt="Hm. Someone took away my wallpaper :(">
+
         <div class="titleContainer">
           <p class="mainTitle">quizBase</p>
           <p class="subTitle">The Super Duper Quiz Database</p>
@@ -23,15 +24,15 @@
 
         <div class="bodyContainer">
           <div class="container">
-              <button type="button" onclick="buildQuiz()" class="btn btn-dark">Build a Quiz</button>
+              <button id="buildQuizButton" type="button" onclick="buildQuiz()" class="btn btn-dark">Build a Quiz</button>
 
               <br>
 
               <div class="form-group pull-right">
-                  <input type="text" class="search form-control" placeholder="What you looking for?">
+                  <input type="text" id="searchBar" onkeyup="searching()" class="search form-control" placeholder="What you looking for?">
               </div>
-              <span class="counter pull-right"></span>
-              <table id="quizDisplay" class="table table-hover table-bordered results">
+
+              <table id="quizDisplay" class="table table-hover results">
                 <thead class="thead-dark">
                   <tr>
                     <th class="col-md-5 col-xs-5">Quiz</th>
